@@ -1,5 +1,5 @@
-!DOCTYPE html> 
-<html lang="en"><!DOCTYPE html>
+
+        <!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -62,6 +62,7 @@
             margin-bottom: 0.3rem;
             font-weight: 700;
             letter-spacing: 0.1rem;
+            animation: textShadow 2s ease-in-out infinite alternate;
         }
 
         .hero-content p {
@@ -131,7 +132,13 @@
             font-weight: 700;
             margin-bottom: 1rem;
             letter-spacing: 0.1rem;
-            text-align: left; /* Added text-align: left; here */
+            text-align: left;
+            transition: color 0.3s ease, transform 0.3s ease;
+        }
+
+        section h2:hover {
+            transform: scale(1.05);
+            color: #007acc;
         }
 
         section p {
@@ -152,9 +159,10 @@
             text-decoration: none;
             font-weight: 600;
             transition: background-color 0.3s ease, box-shadow 0.2s ease-in-out,
-            transform 0.2s ease-in-out;
+                transform 0.2s ease-in-out;
             font-size: 1.1rem;
             box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            animation: buttonShadow 2s ease-in-out infinite alternate;
         }
 
         a.button:hover {
@@ -227,22 +235,47 @@
             }
         }
 
+        @keyframes textShadow {
+            from {
+                text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+            }
+
+            to {
+                text-shadow: 2px 2px 4px rgba(0, 122, 255, 0.5);
+            }
+        }
+
+        @keyframes buttonShadow {
+            from {
+                box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            }
+
+            to {
+                box-shadow: 0 6px 12px rgba(0, 122, 255, 0.3);
+            }
+        }
+
         /* Section-specific styles */
         #about {
             background-color: #000;
             color: white;
             animation: fadeIn 2s ease-in;
             text-align: left;
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-bottom: 2rem;
         }
 
         #about h2 {
             color: #fff;
             text-align: left;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         #about h2:hover {
             color: #00aaff;
+            transform: scale(1.05);
         }
 
         #about p {
@@ -270,7 +303,7 @@
 
         #about li {
             margin-bottom: 0.5rem;
-            transition: color 0.3s ease;
+            transition: color 0.3s ease, transform 0.3s ease;
         }
 
         #about li:hover {
@@ -287,12 +320,6 @@
             animation: fadeIn 2s ease-in;
             background-repeat: no-repeat;
             position: relative;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-            min-height: 300px;
-            text-align: left;
         }
 
         #work::before {
@@ -312,66 +339,108 @@
             font-weight: 700;
             position: relative;
             z-index: 2;
-            text-align: left; /* Added text-align: left; here */
+            text-align: left;
             margin-bottom: 1rem;
-            width: 100%;
             letter-spacing: 0.1rem;
             transition: transform 0.3s ease;
+            color: #fff;
         }
 
         #work h2:hover {
             transform: scale(1.05);
+            color: #00aaff;
         }
 
-        #work p {
-            font-family: 'Poppins', sans-serif;
+        .work-section {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 2rem;
+            position: relative;
+            z-index: 2;
+            background-color: rgba(255, 255, 255, 0.1);
+            border-radius: 10px;
+            padding: 2rem;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .work-section h3 {
+            flex-basis: 30%;
+            text-align: left;
+            margin-bottom: 0.5rem;
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #fff;
+            font-weight: 700;
+            padding-right: 1rem;
+            transition: transform 0.3s ease;
+        }
+
+        .work-section h3:hover {
+            transform: translateX(10px);
+            color: #00aaff;
+        }
+
+        .work-section>div {
+            flex-basis: 65%;
+        }
+
+        .work-section ul {
+            list-style: none;
+            padding-left: 0;
+            margin-left: 0;
+            margin-bottom: 0.5rem;
+        }
+
+        .work-section ul li {
+            color: #fff;
+            transition: transform 0.3s ease;
+        }
+
+        .work-section ul li:hover {
+            transform: translateX(5px);
+            color: #00aaff;
+        }
+
+        .work-section p {
+            margin-bottom: 0;
+            text-align: left;
+            color: #fff;
             font-size: 1.15rem;
             line-height: 1.8;
-            position: relative;
-            z-index: 2;
-            text-align: left;
-            margin-bottom: 1.5rem;
-            max-width: 600px;
-            align-self: flex-start;
-            transition: color 0.3s ease;
         }
 
-        #work p:hover {
-            color: #eee;
-        }
-
-        #work a.button {
-            font-family: 'Poppins', sans-serif;
-            background-color: rgba(0, 122, 204, 0.8);
-            color: white;
-            padding: 0.8rem 1.6rem;
-            border-radius: 8px;
-            display: inline-block;
-            margin-top: 2rem;
+        .work-section a {
+            color: #00aaff;
             text-decoration: none;
+            transition: color 0.3s ease;
             font-weight: 600;
-            transition: background-color 0.3s ease;
-            position: relative;
-            z-index: 2;
-            align-self: flex-start;
-            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
         }
 
-        #work a.button:hover {
-            background-color: rgba(0, 95, 163, 0.9);
-            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.2);
-            transform: translateY(-3px) scale(1.05);
+        .work-section a:hover {
+            color: #fff;
+            text-decoration: underline;
+            transform: scale(1.05);
         }
 
-        #work a.button:active {
-            opacity: 0.8;
-            transform: scale(0.95);
+        /* Adjust for smaller screens */
+        @media (max-width: 768px) {
+            .work-section {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+
+            .work-section h3 {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .work-section>div {
+                width: 100%;
+            }
         }
 
-        #work a.button:focus {
-            outline: 2px solid #007acc;
-            outline-offset: 2px;
-        }
 
         #contact {
             background-color: #000;
@@ -381,6 +450,8 @@
             border-radius: 10px;
             text-align: center;
             font-family: 'Poppins', sans-serif;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            margin-top: 2rem;
         }
 
         #contact h2 {
@@ -473,11 +544,17 @@
             }
 
             #work h2 {
-                text-align: left; /* Added text-align: left; here */
+                text-align: left;
+                color: #fff;
             }
 
             #work p {
                 text-align: center;
+                align-self: center;
+                color: #fff;
+            }
+
+            #work ul {
                 align-self: center;
             }
 
@@ -498,12 +575,42 @@
                 margin-right: auto;
             }
         }
+
+        /* Mobile Styles */
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero-content p {
+                font-size: 1rem;
+            }
+
+            nav li {
+                margin: 0.5rem 0;
+            }
+
+            section {
+                padding: 3rem 1rem;
+            }
+
+            section h2 {
+                font-size: 2rem;
+            }
+
+            section p {
+                font-size: 1rem;
+            }
+
+            #work ul {
+                padding-left: 2rem;
+            }
+        }
     </style>
-    
+
 </head>
 
 <body>
-
     <header>
         <div class="hero-content">
             <h1>Mansi Avhad</h1>
@@ -511,7 +618,6 @@
             <a href="#contact" class="button">Let's Talk</a>
         </div>
     </header>
-
     <nav>
         <ul>
             <li><a href="#about">About</a></li>
@@ -519,7 +625,6 @@
             <li><a href="#contact">Contact</a></li>
         </ul>
     </nav>
-
     <section id="about">
         <h2>Hi, I'm Mansi!</h2>
         <p>
@@ -544,16 +649,59 @@
             </li>
         </ul>
     </section>
-
     <section id="work">
-        <h2>My Latest Work</h2>
+        <h2>My Work</h2>
         <p>
-            Explore my portfolio on Medium to see how I've helped clients achieve
-            their content goals.
+            Here's a glimpse into my work. I write about a variety of topics related to
+            SEO, content marketing, and digital strategy.
         </p>
-        <a href="https://medium.com/@mansiavhad4" target="_blank" class="button">View My Medium Articles</a>
+        <div class="work-section">
+            <h3>B2B Blogs</h3>
+            <div>
+                <ul>
+                    <li><a
+                            href="https://medium.com/@mansiavhad4/the-real-reason-your-linkedin-posts-arent-bringing-in-leads-7a1a17e289b6"
+                            rel="noopener noreferrer" target="_blank">The Real Reason Your LinkedIn Posts Aren’t Bringing in
+                            Leads</a></li>
+                    <li><a
+                            href="https://medium.com/@mansiavhad4/why-case-studies-are-your-secret-weapon-in-b2b-marketing-a1ac35da21b0"
+                            rel="noopener noreferrer" target="_blank">Why Case Studies Are Your Secret Weapon in B2B
+                            Marketing</a></li>
+                    <li><a
+                            href="https://medium.com/@mansiavhad4/why-canva-is-the-branding-backbone-for-mid-sized-businesses-c6afc932c9b7"
+                            rel="noopener noreferrer" target="_blank">Why Canva Is the Branding Backbone for Mid-Sized
+                            Businesses</a></li>
+                    <li><a href="#">Is Your Business Ready for an Economic Downturn?</a></li>
+                    <li><a href="#">The Growing Importance of ESG Investments</a></li>
+                </ul>
+                <p>I specialize in creating in-depth, informative content for B2B audiences. My
+                    focus is on providing valuable insights and actionable strategies.</p>
+            </div>
+        </div>
+        <div class="work-section">
+            <h3>B2C Blogs</h3>
+            <div>
+                <ul>
+                    <li><a href="#">Skincare Myths You Still Believe—and What Actually Works</a></li>
+                    <li><a href="#">Why We Buy – The Psychology Behind Your Shopping Habits</a></li>
+                    <li><a href="#">Scroll, Stop, Shop: Cracking the Code of Mobile Buyers</a></li>
+                </ul>
+                <p>For B2C clients, I craft compelling narratives and engaging content that
+                    resonates with consumers and builds brand loyalty.</p>
+            </div>
+        </div>
+        <div class="work-section">
+            <h3>News Articles</h3>
+            <div>
+                <ul>
+                    <li><a href="#">Start Fresh: How One Simple Morning Habit Boosts Your Energy All Day</a></li>
+                    <li><a href="#">The “Treat Yourself” Economy: Inside the Rise of Micro-Splurges</a></li>
+                </ul>
+                <p>I stay up-to-date with the latest industry trends and deliver timely,
+                    well-researched news articles.</p>
+            </div>
+        </div>
     </section>
-
     <section id="contact">
         <h2>Ready to Elevate Your Content?</h2>
         <p>
@@ -566,17 +714,15 @@
             <i class="fas fa-phone"></i>
             <a href="tel:9819455710">9819455710</a><br />
             <i class="fab fa-linkedin"></i>
-            <a href="https://linkedin.com/in/mansiavhad" target="_blank">LinkedIn</a><br />
+            <a href="https://linkedin.com/in/mansiavhad" target="_blank" rel="noopener noreferrer">LinkedIn</a><br />
             <i class="fas fa-file-alt"></i>
-            <a href="https://aquamarine-evie-30.tiiny.site" target="_blank">View My Resume</a>
+            <a href="https://aquamarine-evie-30.tiiny.site" target="_blank" rel="noopener noreferrer">View My
+                Resume</a>
         </p>
     </section>
-
     <footer>
-        &copy; 2025 Mansi
+        &copy; 2025 Mansi Avhad. All rights reserved.
     </footer>
-
 </body>
 
 </html>
-
